@@ -1,3 +1,33 @@
+// function bubblesort(arr) {
+//   let n = arr.length;
+//   for (let i = 0; i < n - 1; i++) {
+//     for (let j = 0; j < n - 1 - i; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         let temp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+// }
+
+// function reverseBubblesort(arr) {
+//   let n = arr.length;
+//   for (let i = 0; i < n - 1; i++) {
+//     for (let j = 0; j < n - 1 - i; j++) {
+//       if (arr[j] < arr[j + 1]) {
+//         let temp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+// }
+
+//-------------------REPLACED WITH SORT()--------------
+
 let companies = [
   {
     name: "Huge Corporate LTD",
@@ -84,8 +114,13 @@ for (let i = 0; i < companies.length; i++) {
 }
 
 console.log("Employees Number:", employeesNr);
-console.log("Sorted Employees (Ascending):", bubblesort(employeesNr));
-console.log("Sorted Employees (Descending):", reverseBubblesort(employeesNr));
+// Asc
+let sortedEmployeesAsc = [...employeesNr].sort((a, b) => a - b);
+console.log("Sorted Employees (Ascending):", sortedEmployeesAsc);
+
+// Desc
+let sortedEmployeesDesc = [...employeesNr].sort((a, b) => b - a);
+console.log("Sorted Employees (Descending):", sortedEmployeesDesc);
 
 // Filter -> Rating
 let ratingScore = [];
@@ -94,8 +129,13 @@ for (let i = 0; i < companies.length; i++) {
 }
 
 console.log("Ratings displayed as is", ratingScore);
-console.log("Sorted Ratings (Ascending):", bubblesort(ratingScore));
-console.log("Sorted Ratings (Descending):", reverseBubblesort(ratingScore));
+// Asc
+let sortedRatingAsc = [...ratingScore].sort((a, b) => a - b);
+console.log("Sorted Ratings (Ascending):", sortedRatingAsc);
+
+// Desc
+let sortedRatingDesc = [...ratingScore].sort((a, b) => b - a);
+console.log("Sorted Ratings (Descending):", sortedRatingDesc);
 
 // Filter -> Pricing
 let pricingDiff = [];
@@ -103,12 +143,27 @@ for (let i = 0; i < companies.length; i++) {
   pricingDiff.push(companies[i].price);
 }
 console.log("Pricing displayed as is", pricingDiff);
-console.log("Sorted Pricing (Ascending):", bubblesort(pricingDiff));
-console.log("Sorted Pricing (Descending):", reverseBubblesort(pricingDiff));
+// Asc
+let sortedPriceAsc = [...pricingDiff].sort((a, b) => a - b);
+console.log("Sorted Pricing (Ascending):", sortedPriceAsc);
+
+// Desc
+let sortedPriceDesc = [...pricingDiff].sort((a, b) => b - a);
+console.log("Sorted Pricing (Descending):", sortedPriceDesc);
 
 // Filter -> CEO[age, gender]
 
 //          Filter -> Ceo age
+
+console.log("CEO Ages for each company:", allCeoAges);
+
+// Asc
+let sortedCeoAgesAsc = [...allCeoAges].sort((a, b) => a - b);
+console.log("Sorted CEO Ages (Ascending):", sortedCeoAgesAsc);
+
+// Desc
+let sortedCeoAgesDesc = [...allCeoAges].sort((a, b) => b - a);
+console.log("Sorted CEO Ages (Descending):", sortedCeoAgesDesc);
 
 //                  Ivanov avg age case
 let ivanovCompany;
@@ -160,4 +215,8 @@ for (let i = 0; i < companies.length; i++) {
   }
 }
 
-console.log("All Genders:", genders);
+let sortedGendersAsc = [...genders].sort(); // AB order
+let sortedGendersDesc = [...genders].sort().reverse(); // BA order
+
+console.log("Genders Sorted Ascending:", sortedGendersAsc);
+console.log("Genders Sorted Descending:", sortedGendersDesc);
